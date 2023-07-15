@@ -43,5 +43,3 @@ else:
     output = 'The image is a ' + result
     col2.success(output)
 
-st.subheader("Metrics")  
-
