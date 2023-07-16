@@ -13,7 +13,7 @@ def load_model():
     return model
 @st.cache_resource()
 def load_model_dog_breed():
-    model_dog_breed = tf.keras.models.load_model('"dog_breed_model_1_keras.h5"')
+    model_dog_breed = tf.keras.models.load_model("dog_breed_model_1_keras.h5")
     return model_dog_breed
 
 
