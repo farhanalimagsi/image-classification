@@ -13,7 +13,7 @@ def load_model():
     return model
 @st.cache_resource()
 def load_model_dog_breed():
-    model_dog_breed = tf.keras.models.load_model("dog_breed_model_1_keras.h5")
+    model_dog_breed = tf.keras.models.load_model('dog_breed_model_1_keras.h5')
     return model_dog_breed
 
 
@@ -26,9 +26,9 @@ def predict_class(image, model):
 
 def predict_dog_class(image, model):
     imag = tf.cast(image, tf.float32)
-    imag = tf.image.resize(imag, [600, 600])
+    imag = tf.image.resize(imag, [224, 224])
     imag = tf.expand_dims(imag, axis=0)
-    imag = imag/255
+    #imag = imag/255
     dog_prediction = model.predict(imag)
     return dog_prediction
 
