@@ -3,7 +3,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from PIL import Image
-from sklearn.metrics import classification_report
 
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
@@ -14,7 +13,7 @@ def load_model():
     return model
 @st.cache_resource()
 def load_model_dog_breed():
-    model_dog_breed = tf.keras.models.load_model('dog_breed_1')
+    model_dog_breed = tf.keras.models.load_model('"dog_breed_model_1_keras.h5"')
     return model_dog_breed
 
 
