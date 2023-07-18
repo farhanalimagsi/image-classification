@@ -7,12 +7,12 @@ from PIL import Image
 
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
-@st.cache_resource(persist=True)
+@st.cache_resource()
 def load_model():
 
     model = tf.keras.models.load_model('model.h5')
     return model
-@st.cache_resource(persist=True)
+@st.cache_resource()
 def load_model_dog_breed():
     model_dog_breed = tf.keras.models.load_model('dog_breed.h5',
                                                 custom_objects={"KerasLayer":hub.KerasLayer})
