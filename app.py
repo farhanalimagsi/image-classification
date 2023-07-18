@@ -1,4 +1,5 @@
 import tensorflow as tf
+import tensorflow_hub as hub
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -6,14 +7,15 @@ from PIL import Image
 
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
-@st.cache_resource()
+@st.cache_resource(persist=True)
 def load_model():
 
     model = tf.keras.models.load_model('model.h5')
     return model
 @st.cache_resource()
-def load_model_dog_breed():
-    model_dog_breed = tf.keras.models.load_model('dog_breed_model_1_keras.h5')
+def load_model_dog_breed(persist=True):
+    model_dog_breed = tf.keras.models.load_model('dog_breed.h5',
+                                                custom_objects={"KerasLayer":hub.KerasLayer)
     return model_dog_breed
 
 
@@ -28,7 +30,7 @@ def predict_dog_class(image, model):
     imag = tf.cast(image, tf.float32)
     imag = tf.image.resize(imag, [224, 224])
     imag = tf.expand_dims(imag, axis=0)
-    #imag = imag/255
+    imag = imag/255
     dog_prediction = model.predict(imag)
     return dog_prediction
 
