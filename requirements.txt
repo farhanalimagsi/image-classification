@@ -1,5 +1,6 @@
 streamlit
 tensorflow
+tensorflow_hub
 numpy
 pandas
 scikit-learn
