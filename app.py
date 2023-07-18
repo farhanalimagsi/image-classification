@@ -15,7 +15,7 @@ def load_model():
 @st.cache_resource()
 def load_model_dog_breed(persist=True):
     model_dog_breed = tf.keras.models.load_model('dog_breed.h5',
-                                                custom_objects={"KerasLayer":hub.KerasLayer)
+                                                custom_objects={"KerasLayer":hub.KerasLayer})
     return model_dog_breed
 
 
