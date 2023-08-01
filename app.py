@@ -40,8 +40,8 @@ app_mode = st.sidebar.radio("Pick image class", ["Dog Breed","Food"])
 
 if app_mode == 'Dog Breed':
     dog_breed_model = load_model_dog_breed()
-#if app_mode == 'Food':  
-    #model = load_model()
+if app_mode == 'Food':  
+    st.title("Under Process")
 
 #if app_mode == 'Food':
 
